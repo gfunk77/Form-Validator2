@@ -70,6 +70,11 @@ function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
+// Clear Fields
+function clearFields(inputArr) {
+  inputArr.forEach((input) => (input.value = ''));
+}
+
 // Event Listener
 form.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -79,4 +84,5 @@ form.addEventListener('submit', function (e) {
   checkLength(password, 6, 15);
   checkEmail(email);
   checkPasswordsMatch(password, password2);
+  clearFields([username, email, password, password2]);
 });
